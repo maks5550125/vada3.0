@@ -1,0 +1,124 @@
+.insurance-info {
+    font-size: 1.0625rem;
+
+    &__text {
+        margin-bottom: 0.923%;
+        line-height: 1.15;
+        text-align: justify;
+    }
+    &__text_bold {
+        font-weight: 700;
+    }
+    &__insurance-description {}
+}
+.insurance-description {
+    line-height: 1.5;
+
+    &__representative {
+        margin-bottom: 0.307%;
+        padding-left: 1.92%;
+        background: url('../img/insurance/representative.svg') no-repeat 0 1px / 1.54%;
+    }
+    &__rate {
+        margin-bottom: 0.307%;
+        padding-left: 1.92%;
+        background: url('../img/insurance/rate.svg') no-repeat 0 1px / 1.54%;
+    }
+    &__time {
+        margin-bottom: 0.307%;
+        padding-left: 1.92%;
+        background: url('../img/insurance/time.svg') no-repeat 0 1px / 1.54%;
+    }
+    &__service {
+        margin-bottom: 0.921%;
+        padding-left: 1.92%;
+        background: url('../img/insurance/service.svg') no-repeat 0 1px / 1.54%;
+    }
+}
+.insurance-form {
+    font-size: 1.0625rem;
+
+    &__form {
+        margin-bottom: 2.7%;
+
+        & input {
+            margin-bottom: 15px;
+            font-size: 1.125rem;
+            width: 12.5rem; 
+            height: 2.5rem; 
+            background-color: #d0d0d0;
+            border: 1px solid #c0c0c0;
+        }
+    }
+    &__user-address {}
+    &__user-address-level1 {
+        display: flex;
+        gap: 1.875rem;
+        margin-bottom: 10px;
+    }
+    &__city-wrapper {}
+    &__city-label {
+        margin-bottom: 5px;
+    }
+    &__city {}
+    &__street-wrapper {}
+    &__street-label {
+        margin-bottom: 5px;
+    }
+    &__street {}
+    &__user-address-level2 {
+        display: flex;
+        gap: 1.875rem;
+        margin-bottom: 10px;
+    }
+    &__house-wrapper {}
+    &__house-label {
+        margin-bottom: 5px;
+    }
+    &__house {}
+    &__flat-wrapper {}
+    &__flat-label {
+        margin-bottom: 5px;
+    }
+    &__flat {}
+    &__date-of-birth-and-inn-wrapper {
+        display: flex;
+        gap: 1.875rem;
+        margin-bottom: 10px;
+    }
+    &__date-of-birth-wrapper {}
+    &__date-of-birth-label {
+        margin-bottom: 5px;
+    }
+    &__date-of-birth {}
+    &__inn-wrapper {}
+    &__inn-label {
+        margin-bottom: 5px;
+    }
+    &__inn {}
+    &__drivers-license-wrapper {}
+    &__drivers-license-label {
+        margin-bottom: 5px;
+    }
+    &__sum-insured-wrapper {}
+    &__sum-insured-label {
+        margin-bottom: 5px;
+    }
+    &__sum-insured {}
+    &__address {
+        display: none;
+    }
+    &__submit {}
+
+    @media (max-width: 31.1875em) {
+        &__user-address-level1 {
+            display: block;
+        }
+        &__user-address-level2 {
+            display: block;
+        }
+        &__date-of-birth-and-inn-wrapper {
+            display: block;
+        }
+    }
+}

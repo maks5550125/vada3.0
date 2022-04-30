@@ -1,0 +1,45 @@
+.main {
+    &__address {
+        margin-bottom: 2.26%;
+    }
+}
+.address {
+    padding-top: 2.26%;
+
+    &__wrapper {
+        background-color: #f0f0f0;
+        height: 3.75rem;
+        box-shadow: 0 0 3px 0 #707070;
+
+
+    }
+    &__container {
+        padding-left: 3.4375rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1.125rem;
+        height: 100%;
+        background: url('../img/icons/adress.png') 0.3125rem 0.625rem / 2.5rem 2.5rem no-repeat;
+    }
+    &__title {
+        margin-bottom: 3px;
+    }
+    &__text {}
+
+    @media (max-width: 63.9375em) {
+        &__wrapper .content {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 34.375em) {
+        &__container {
+            padding-left: 48px;
+            font-size: 1rem;
+            background: url('../img/icons/adress.png') 0.3125rem 0.75rem / 2.25rem 2.25rem no-repeat;
+
+        }
+    }
+}

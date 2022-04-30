@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VaDaСтрах</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <!-- @import "header.kit" -->
+
+            <main class="main">
+                <!-- @import "address.kit" -->
+
+                <div class="content">
+                    <div class="insurance-info">
+                        <p class="insurance-info__text">Не важно, владеете вы имуществом или арендуете его, непредвиденные обстоятельства (например, порча или утрата), связанные с жильем, домом или квартирой, обычно наносят самый большой финансовый и эмоциональный ущерб. Заключив договор страхования жилья, вы снизите до минимума свои риски.</p>
+                        <div class="insurance-info__insurance-description insurance-description">
+                            <p class="insurance-description__representative"><span class="insurance-info__text_bold">Услугу предоставляет:</span> VaDaСтрах.</p>
+                            <p class="insurance-description__rate"><span class="insurance-info__text_bold">Соотношение размера ваших взносов и страховой выплаты:</span> от 100% до 5000%</p>
+                            <p class="insurance-description__time"><span class="insurance-info__text_bold">Время оформления заявки:</span> 3 дня.</p>
+                            <p class="insurance-description__service"><span class="insurance-info__text_bold">Уровень сервиса:</span> на высоте!</p>
+                        </div>
+                    </div>
+                    <div class="insurance-form">
+                        <form name="homeInsurance" action="#" method="post" class="insurance-form__form">
+                            <div class="insurance-form__user-address">
+                                <div class="insurance-form__user-address-level1">
+                                    <div class="insurance-form__city-wrapper">
+                                        <p class="insurance-form__city-label">Город</p>
+                                        <input name="homeInsuranceCity" type="text" class="insurance-form__city">
+                                    </div>
+                                    <div class="insurance-form__street-wrapper">
+                                        <p class="insurance-form__street-label">Улица</p>
+                                        <input name="homeInsuranceStreet" type="text" class="insurance-form__street">
+                                    </div>
+                                </div>
+                                <div class="insurance-form__user-address-level2">
+                                    <div class="insurance-form__house-wrapper">
+                                        <p class="insurance-form__house-label">Дом</p>
+                                        <input name="homeInsuranceHouse" type="text" class="insurance-form__house">
+                                    </div>
+                                    <div class="insurance-form__flat-wrapper">
+                                        <p class="insurance-form__flat-label">Квартира</p>
+                                        <input name="homeInsuranceFlat" type="text" class="insurance-form__flat">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="insurance-form__date-of-birth-and-inn-wrapper">
+                                <div class="insurance-form__inn-wrapper">
+                                    <p class="insurance-form__inn-label">ИНН</p>
+                                    <input name="homeInsuranceInn" type="text" class="insurance-form__inn">
+                                </div>
+                                <div class="insurance-form__date-of-birth-wrapper">
+                                    <p class="insurance-form__date-of-birth-label">Дата рождения (ДД.ММ.ГГГГ)</p>
+                                    <input name="homeInsuranceDateOfBirth" type="text" class="insurance-form__date-of-birth">
+                                </div>
+                            </div>
+                            <div class="insurance-form__sum-insured-wrapper">
+                                <p class="insurance-form__sum-insured-label">Сумма страхования</p>
+                                <input name="homeInsuranceSumInsured" type="text" class="insurance-form__sum-insured">
+                            </div>
+                            <!-- Форма с адресом офиса, заполняется автоматически по значению города -->
+                            <input name="homeInsuranceAddress" type="text" class="insurance-form__address">
+                            <div class="insurance-form__submit submit"><button class="submit__button">Отправить</button></div>
+                        </form>
+                    </div>
+                </div>
+                <!-- @import "reg_popup.kit" -->
+
+                <!-- @import "sign_popup.kit" -->
+
+            </main>
+            <!-- @import "footer.kit" -->
+
+        </div>
+
+        <script src="/js/header.js"></script>
+        <script src="/js/address.js"></script>
+        <script src="/js/reg.js"></script>
+        <script src="/js/sign.js"></script>
+        <script src="/js/home_insurance.js"></script>
+
+    </body>
+</html>

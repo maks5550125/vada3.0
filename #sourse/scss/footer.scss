@@ -1,0 +1,31 @@
+.footer {
+    background-color: #004aad;
+    color: white;
+    box-shadow: 0 0 3px 0 #707070;
+    height: 5rem;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    &__contacts {}
+    &__info {
+        font-size: 1rem;
+    }
+    &__info-name {}
+    &__info-year {}
+
+    @media (max-width: 23.4375em) {
+        &__wrapper {
+            flex-direction: column;
+            justify-content: center;
+        }
+    }    
+}
+.content {
+}
+.contacts {
+    &__tel {}
+}

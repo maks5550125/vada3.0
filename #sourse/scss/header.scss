@@ -1,0 +1,221 @@
+.header {
+    box-shadow: 0 0 3px 0 #707070;
+
+    &__main {
+        height: 7.5rem;
+        background-color: #004aad;
+        color: white;
+    }
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 12.5rem 1fr 12.5rem;
+        height: 100%;
+    }
+    &____contacts {}
+    &__contacts-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: url('../img/icons/tel_icon.png') 0 0 / 2.5rem 2.5rem no-repeat;
+        display: none;
+    }
+    &__logo {
+        display: flex;
+        align-items: center;
+        height: 100%;   
+    }
+    &__logo-link {
+        display: block;
+        margin: 0 auto;
+        width: 6.25rem;
+        height: 6.25rem;
+    }
+    &__logo-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    &__logo-image img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &__city-and-burger {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        height: 100%;
+    }
+    &__form {}
+    &__city-select {
+        font-size: 1.125rem;
+        width: 12.5rem; 
+        height: 2.5rem; 
+        background-color: #d0d0d0;
+        border: 1px solid #c0c0c0;
+    }
+    &__burger {
+        position: relative;
+        width: 2.5rem;
+        height: 1.875rem;
+        display: none;
+    }
+    &__burger::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0.3125rem;
+        background-color: white;
+    }
+    &__burger::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.3125rem;
+        background-color: white;
+    }
+    &__burger span {
+        position: absolute;
+        top: 0.8125rem;
+        left: 0;
+        width: 100%;
+        height: 0.3125rem;
+        background-color: white;
+    }
+    &__sign {
+        font-size: 1rem;
+        color: black;
+        height: 2.5rem;
+        background-color: #d0d0d0;
+        border-top: 2px solid #c0c0c0;
+        border-bottom: 2px solid #c0c0c0;
+
+    }
+    &__sign-list {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 1.54%;
+        height: 100%;
+    }
+    &__sign-item {}
+
+    @media (max-width: 48em) {
+        &__wrapper {
+            grid-template-columns: 3.125rem 1fr 3.125rem;
+        }
+        &__contacts-icon {
+            display: block;
+        }
+        &__burger {
+            display: block;
+        }
+        &__city-select {
+            margin-bottom: 15px;
+        }
+        &__sign {
+            padding: 20px 15px 0 15px;
+            position: fixed;
+            right: -100%;
+            visibility: hidden;
+            transition-duration: 300ms;
+            font-size: 1.125rem;
+            color: white;
+            height: 100vh;
+            background-color: #004aad;
+            border-top: none;
+            border-bottom: none;
+            box-shadow: 0 0 5px 0 #808080;
+            z-index: 5;
+        }
+        &__sign._active {
+            right: 0;
+            visibility: visible;
+        }
+        &__sign-list {
+            display: block;
+            text-align: right;
+        }
+        &__sign-item {
+            margin-bottom: 15px;
+        }
+        &__sign-item:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.content {
+    padding: 0 1.11%;
+    margin: 0 auto;
+    max-width: 83.125rem;
+    height: 100%;
+}
+
+.contacts {
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+
+    
+    &__tel {
+        padding-left: 1.1875rem;
+        background: url('../img/icons/tel_icon.png') 0 3px / 17px 17px no-repeat;
+    } 
+    &__tel a {
+        color: white;
+    }
+    &_tel:hover {
+        text-shadow: 0 0 10px #303030;
+    }
+    &__tel a:hover {
+        text-decoration: underline 2px;
+    }
+}
+
+@media (max-width: 48em) {
+    .contacts {
+        position: relative;
+
+        .header__wrapper &__tel {
+            padding: 10px 20px;
+            padding-left: 19px;
+            opacity: 0;
+            visibility: hidden;
+            transition-duration: 200ms;
+            position: absolute;
+            left: 0;
+            top: 5.9375rem;
+            width: 12.5rem;
+            z-index: 2;
+            background: #004aad url('../img/icons/tel_icon.png') 0 13px / 17px 17px no-repeat;
+            box-shadow: 0 0 2px 0 #808080;
+        } 
+
+        .header__wrapper &__tel._active {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.sign {}
+.sign:hover {
+    text-decoration: underline;
+}
+.sign:active {
+    text-shadow: 0 0 1px #808080;
+}
+.reg {}
+.reg:hover {
+    text-decoration: underline 2px;
+}
+.reg:active {
+    text-shadow: 0 0 1px #808080;
+}

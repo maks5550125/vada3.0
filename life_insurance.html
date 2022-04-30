@@ -1,0 +1,192 @@
+<!-- Создание элемента веб-страницы (Страхование жизни) -->
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VaDaСтрах</title>
+    </head>
+    <body>
+        <div class="wrapper">
+<header class="header">
+    <div class="header__main">
+        <div class="content">
+            <div class="header__wrapper">
+                <div class="header__contacts contacts">
+                    <div class="header__contacts-icon"></div>
+                    <p class="contacts__tel"><a href="tel:+79066427840" class="contacts__tel-link">+7 (906) 642-78-40</a></p>
+                </div>
+                <div class="header__logo">
+                    <a href="index.html" class="header__logo-link">
+                        <div class="header__logo-image">
+                            <img src="img/header/logo.jpg" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="header__city-and-burger">
+                    <form action="" class="header__form">
+                        <select name="city" id="" class="header__city-select">
+                            <option value="moscow">Москва</option>
+                            <option value="kaluga">Калуга</option>
+                            <option value="stPetersburg">Санкт-Петербург</option>
+                            <option value="sochi">Сочи</option>
+                            <option value="lyudinovo">Людиново</option>
+                        </select>
+                    </form>
+                    <button class="header__burger">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__sign">
+        <div class="content">
+            <ul class="header__sign-list">
+                <li class="header__sign-item"><button type="button" class="sign">Войти</button></li>
+                <li class="header__sign-item"><button type="button" class="reg">Регистрация</button></li>
+            </ul>
+        </div>
+    </div>
+</header>
+            <main class="main">
+<section class="main__address address">
+    <div class="address__wrapper">
+        <div class="content">
+            <div class="address__container">
+                <p class="address__title">Адрес в вашем городе:</p>
+                <p class="address__text"></p>
+            </div>
+        </div>
+    </div>
+</section>
+                <div class="content">
+                    <div class="insurance-info">
+                        <p class="insurance-info__text">Страхование жизни и здоровья — один из первых и основных видов страхования, который и по сей день остается популярным. Разнообразные программы помогут получить компенсацию, если застрахованный человек заболеет или получит травму.</p>
+                        <div class="insurance-info__insurance-description insurance-description">
+                            <p class="insurance-description__representative"><span class="insurance-info__text_bold">Услугу предоставляет:</span> VaDaСтрах.</p>
+                            <p class="insurance-description__rate"><span class="insurance-info__text_bold">Соотношение размера ваших взносов и страховой выплаты:</span> от 100% до 5000%</p>
+                            <p class="insurance-description__time"><span class="insurance-info__text_bold">Время оформления заявки:</span> 3 дня.</p>
+                            <p class="insurance-description__service"><span class="insurance-info__text_bold">Уровень сервиса:</span> на высоте!</p>
+                        </div>
+                    </div>
+                    <div class="insurance-form">
+                        <form name="lifeInsurance" action="#" method="post" class="insurance-form__form">
+                            <div class="insurance-form__user-address">
+                                <div class="insurance-form__user-address-level1">
+                                    <div class="insurance-form__city-wrapper">
+                                        <p class="insurance-form__city-label">Город</p>
+                                        <input name="lifeInsuranceCity" type="text" class="insurance-form__city">
+                                    </div>
+                                    <div class="insurance-form__street-wrapper">
+                                        <p class="insurance-form__street-label">Улица</p>
+                                        <input name="lifeInsuranceStreet" type="text" class="insurance-form__street">
+                                    </div>
+                                </div>
+                                <div class="insurance-form__user-address-level2">
+                                    <div class="insurance-form__house-wrapper">
+                                        <p class="insurance-form__house-label">Дом</p>
+                                        <input name="lifeInsuranceHouse" type="text" class="insurance-form__house">
+                                    </div>
+                                    <div class="insurance-form__flat-wrapper">
+                                        <p class="insurance-form__flat-label">Квартира</p>
+                                        <input name="lifeInsuranceFlat" type="text" class="insurance-form__flat">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="insurance-form__date-of-birth-and-inn-wrapper">
+                                <div class="insurance-form__inn-wrapper">
+                                    <p class="insurance-form__inn-label">ИНН</p>
+                                    <input name="lifeInsuranceInn" type="text" class="insurance-form__inn">
+                                </div>
+                                <div class="insurance-form__date-of-birth-wrapper">
+                                    <p class="insurance-form__date-of-birth-label">Дата рождения (ДД.ММ.ГГГГ)</p>
+                                    <input name="lifeInsuranceDateOfBirth" type="text" class="insurance-form__date-of-birth">
+                                </div>
+                            </div>
+                            <div class="insurance-form__sum-insured-wrapper">
+                                <p class="insurance-form__sum-insured-label">Сумма страхования</p>
+                                <input name="lifeInsuranceSumInsured" type="text" class="insurance-form__sum-insured">
+                            </div>
+                            <!-- Форма с адресом офиса, заполняется автоматически по значению города -->
+                            <input name="lifeInsuranceAddress" type="text" class="insurance-form__address">
+                            <div class="insurance-form__submit submit"><button class="submit__button">Отправить</button></div>
+                        </form>
+                    </div>
+                </div>
+<div class="reg-popup">
+    <div class="reg-popup__body">
+        <form action="#" name="reg"  method="post" class="reg-popup__form">
+            <div class="reg-popup__name-and-surname-wrapper">
+                <div class="reg-popup__name-wrapper">
+                    <p class="reg-popup__name-label">Имя</p>
+                    <input name="regName" type="text" class="reg-popup__name">
+                </div>
+                <div class="reg-popup__surname-wrapper">
+                    <p class="reg-popup__surname-label">Фамилия</p>
+                    <input name="regSurname" type="text" class="reg-popup__surname">
+                </div>
+            </div>
+            <p class="reg-popup__patronymic-label">Отчество</p>
+            <input name="regPatronymic" type="text" class="reg-popup__patronymic">
+            <p class="reg-popup__passport-wrapper-label">Паспорт</p>
+            <div class="reg-popup__passport-wrapper">
+                <div class="reg-popup__passport-series-wrapper">
+                    <p class="reg-popup__passport-series-label">Серия</p>
+                    <input name="regPassportSeries" type="text" class="reg-popup__passport-series">
+                </div>
+                <div class="reg-popup__passport-number-wrapper">
+                    <p class="reg-popup__passport-number-label">Номер</p>
+                    <input name="regPassportNumber" type="text" class="reg-popup__passport-number">
+                </div>
+            </div>
+            <p class="reg-popup__tel-label">Телефон</p>
+            <input name="regTel" type="tel" class="reg-popup__tel">
+            <p class="reg-popup__password-label">Пароль</p>
+            <input name="regPassword" type="password" class="reg-popup__password">
+            <div class="reg-popup__submit submit"><button class="submit__button">Отправить</button></div>
+        </form>
+        <button type="button" class="reg-popup__cancel-button cancel-button">
+            <span class="cancel-button__cancel-line1"></span>
+            <span class="cancel-button__cancel-line2"></span>
+        </button>
+    </div>
+</div>
+<div class="sign-popup">
+    <div class="sign-popup__body">
+        <form action="#" name="sign" method="post" class="sign-popup__form">
+            <p class="sign-popup__tel-label">Телефон</p>
+            <input name="signTel" type="tel" class="sign-popup__tel">
+            <p class="sign-popup__password-label">Пароль</p>
+            <input name="signPassword" type="password" class="sign-popup__password">
+            <div class="sign-popup__submit submit"><button class="submit__button">Отправить</button></div>
+        </form>
+        <button type="button" class="sign-popup__cancel-button cancel-button">
+            <span class="cancel-button__cancel-line1"></span>
+            <span class="cancel-button__cancel-line2"></span>
+        </button>
+    </div>
+</div>
+            </main>
+<footer class="footer">
+    <div class="content">
+        <div class="footer__wrapper">
+            <div class="footer__contacts contacts">
+                <p class="contacts__tel"><a href="tel:+79066427840" class="contacts__tel-link">+7 (906) 642-78-40</a></p>
+            </div>
+            <div class="footer__info">
+                <p class="footer__info-name">VaDaСтрах, 2022</p>
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+
+        <script src="js/header.js"></script>
+        <script src="js/address.js"></script>
+        <script src="js/reg.js"></script>
+        <script src="js/sign.js"></script>
+        <script src="js/life_insurance.js"></script>
+    </body>
+</html>

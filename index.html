@@ -1,0 +1,180 @@
+<!-- Создание элементов веб-страницы (Путеводители по странице) -->
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VaDaСтрах</title>
+    </head>
+    <body>
+<header class="header">
+    <div class="header__main">
+        <div class="content">
+            <div class="header__wrapper">
+                <div class="header__contacts contacts">
+                    <div class="header__contacts-icon"></div>
+                    <p class="contacts__tel"><a href="tel:+79066427840" class="contacts__tel-link">+7 (906) 642-78-40</a></p>
+                </div>
+                <div class="header__logo">
+                    <a href="index.html" class="header__logo-link">
+                        <div class="header__logo-image">
+                            <img src="img/header/logo.jpg" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="header__city-and-burger">
+                    <form action="" class="header__form">
+                        <select name="city" id="" class="header__city-select">
+                            <option value="moscow">Москва</option>
+                            <option value="kaluga">Калуга</option>
+                            <option value="stPetersburg">Санкт-Петербург</option>
+                            <option value="sochi">Сочи</option>
+                            <option value="lyudinovo">Людиново</option>
+                        </select>
+                    </form>
+                    <button class="header__burger">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__sign">
+        <div class="content">
+            <ul class="header__sign-list">
+                <li class="header__sign-item"><button type="button" class="sign">Войти</button></li>
+                <li class="header__sign-item"><button type="button" class="reg">Регистрация</button></li>
+            </ul>
+        </div>
+    </div>
+</header>
+            <main class="main">
+<section class="main__address address">
+    <div class="address__wrapper">
+        <div class="content">
+            <div class="address__container">
+                <p class="address__title">Адрес в вашем городе:</p>
+                <p class="address__text"></p>
+            </div>
+        </div>
+    </div>
+</section>
+                <div class="content">
+                    <section class="main__insurance-services insurance-services">
+                        <article class="insurance-services__insurance-service insurance-service">
+                            <div class="insurance-service__wrapper">
+                                <div class="insurance-service__image">
+                                    <a href="life_insurance.html"><img src="img/insurance_services/life_insurance.jpg" alt=""></a>
+                                </div>
+                                <div class="insurance-service__body">
+                                    <div class="insurance-service__body-wraper">
+                                        <h2 class="insurance-service__title"><a href="life_insurance.html">Страхование жизни и здоровья</a></h2>
+                                        <p class="insurance-service__description">Страхование жизни и здоровья — один из первых и основных видов страхования, который и по сей день остается популярным. Разнообразные программы помогут получить компенсацию, если застрахованный человек заболеет или получит травму.</p>
+                                    </div>
+                                    <a href="life_insurance.html" class="insurance-service__link">Подробнее</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="insurance-services__insurance-service insurance-service">
+                            <div class="insurance-service__wrapper">
+                                <div class="insurance-service__image">
+                                    <a href="car_insurance.html"><img src="img/insurance_services/car_insurance.jpg" alt=""></a>
+                                </div>
+                                <div class="insurance-service__body">
+                                    <div class="insurance-service__body-wraper">
+                                        <h2 class="insurance-service__title"><a href="car_insurance.html">Страхование личного авто</a></h2>
+                                        <p class="insurance-service__description">Ситуация на дороге никогда не бывает предсказуемой. Даже если вы давно водите автомобиль и прекрасно справляетесь с его управлением, вы не можете быть уверены в своей безопасности, ведь причиной ДТП могут стать другие участники дорожного движения. Заключив договор страхования своей машины, вы снизите до минимума риски, связанные с использованием личного авто.</p>
+                                    </div>
+                                    <a href="car_insurance.html" class="insurance-service__link">Подробнее</a>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="insurance-services__insurance-service insurance-service">
+                            <div class="insurance-service__wrapper">
+                                <div class="insurance-service__image">
+                                    <a href="home_insurance.html"><img src="img/insurance_services/home_insurance.jpg" alt=""></a>
+                                </div>
+                                <div class="insurance-service__body">
+                                    <div class="insurance-service__body-wraper">
+                                        <h2 class="insurance-service__title"><a href="home_insurance.html">Страхование жилья</a></h2>
+                                        <p class="insurance-service__description">Не важно, владеете вы имуществом или арендуете его, непредвиденные обстоятельства (например, порча или утрата), связанные с жильем, домом или квартирой, обычно наносят самый большой финансовый и эмоциональный ущерб. Заключив договор страхования жилья, вы снизите до минимума свои риски.</p>
+                                    </div>
+                                    <a href="home_insurance.html" class="insurance-service__link">Подробнее</a>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+<div class="reg-popup">
+    <div class="reg-popup__body">
+        <form action="#" name="reg"  method="post" class="reg-popup__form">
+            <div class="reg-popup__name-and-surname-wrapper">
+                <div class="reg-popup__name-wrapper">
+                    <p class="reg-popup__name-label">Имя</p>
+                    <input name="regName" type="text" class="reg-popup__name">
+                </div>
+                <div class="reg-popup__surname-wrapper">
+                    <p class="reg-popup__surname-label">Фамилия</p>
+                    <input name="regSurname" type="text" class="reg-popup__surname">
+                </div>
+            </div>
+            <p class="reg-popup__patronymic-label">Отчество</p>
+            <input name="regPatronymic" type="text" class="reg-popup__patronymic">
+            <p class="reg-popup__passport-wrapper-label">Паспорт</p>
+            <div class="reg-popup__passport-wrapper">
+                <div class="reg-popup__passport-series-wrapper">
+                    <p class="reg-popup__passport-series-label">Серия</p>
+                    <input name="regPassportSeries" type="text" class="reg-popup__passport-series">
+                </div>
+                <div class="reg-popup__passport-number-wrapper">
+                    <p class="reg-popup__passport-number-label">Номер</p>
+                    <input name="regPassportNumber" type="text" class="reg-popup__passport-number">
+                </div>
+            </div>
+            <p class="reg-popup__tel-label">Телефон</p>
+            <input name="regTel" type="tel" class="reg-popup__tel">
+            <p class="reg-popup__password-label">Пароль</p>
+            <input name="regPassword" type="password" class="reg-popup__password">
+            <div class="reg-popup__submit submit"><button class="submit__button">Отправить</button></div>
+        </form>
+        <button type="button" class="reg-popup__cancel-button cancel-button">
+            <span class="cancel-button__cancel-line1"></span>
+            <span class="cancel-button__cancel-line2"></span>
+        </button>
+    </div>
+</div>
+<div class="sign-popup">
+    <div class="sign-popup__body">
+        <form action="#" name="sign" method="post" class="sign-popup__form">
+            <p class="sign-popup__tel-label">Телефон</p>
+            <input name="signTel" type="tel" class="sign-popup__tel">
+            <p class="sign-popup__password-label">Пароль</p>
+            <input name="signPassword" type="password" class="sign-popup__password">
+            <div class="sign-popup__submit submit"><button class="submit__button">Отправить</button></div>
+        </form>
+        <button type="button" class="sign-popup__cancel-button cancel-button">
+            <span class="cancel-button__cancel-line1"></span>
+            <span class="cancel-button__cancel-line2"></span>
+        </button>
+    </div>
+</div>
+            </main>
+<footer class="footer">
+    <div class="content">
+        <div class="footer__wrapper">
+            <div class="footer__contacts contacts">
+                <p class="contacts__tel"><a href="tel:+79066427840" class="contacts__tel-link">+7 (906) 642-78-40</a></p>
+            </div>
+            <div class="footer__info">
+                <p class="footer__info-name">VaDaСтрах, 2022</p>
+            </div>
+        </div>
+    </div>
+</footer>
+        <script src="js/header.js"></script>
+        <script src="js/address.js"></script>
+        <script src="js/reg.js"></script>
+        <script src="js/sign.js"></script>
+    </body>
+</html>
