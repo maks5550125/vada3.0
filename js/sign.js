@@ -24,20 +24,21 @@ window.addEventListener('click', function(event) {
 })
 
 const signForm = document.forms.sign;
-const signTel = signForm.signTel;
+const signEmail = signForm.signEmail;
 const signPassword = signForm.signPassword;
 
 //Проверка полей формы авторизации
 if  (signForm) {
     signForm.addEventListener('submit', function(event) {
+        let emailForm = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         let signDataIsCorrect = true;
 
-        if (signTel && signPassword) {
-            if (!numberInputCheck(signTel.value, 11)) {
-                signTel.style.border = '1px solid red';
+        if (signEmail && signPassword) {
+            if (!emailForm.test(signEmail.value)) {
+                signEmail.style.border = '1px solid red';
                 signDataIsCorrect = false;
             }
-            if (signPassword.value.length < 5) {
+            if (signPassword.value.length < 4) {
                 signPassword.style.border = '1px solid red';
                 signDataIsCorrect = false;
             }
@@ -52,10 +53,10 @@ if  (signForm) {
     });
 }
 
-//Заполнение полей телефон и пароль (авторизация)
-if (signTel && signPassword) {
-    signTel.addEventListener('focus', function() {
-        signTel.style.border = '1px solid #c0c0c0';
+//Заполнение полей email и пароль (авторизация)
+if (signEmail && signPassword) {
+    signEmail.addEventListener('focus', function() {
+        signEmail.style.border = '1px solid #c0c0c0';
     });
     signPassword.addEventListener('focus', function() {
         signPassword.style.border = '1px solid #c0c0c0';

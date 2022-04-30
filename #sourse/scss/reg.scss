@@ -33,49 +33,8 @@
             border: 1px solid #c0c0c0;
         }
     }
-    &__name-and-surname-wrapper {
-        display: flex;
-        gap: 30px;
-    }
-    &__name-label {
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-    &__name {}
-    &__surname-label {
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-    &__surname {}
-    &__patronymic-label {
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-    &__patronymic {}
-    &__passport-wrapper-label {
-        margin-bottom: 7px;
-        font-size: 27px;
-    }
-    &__passport-wrapper {
-        display: flex;
-        gap: 30px;
-    }
-    &__passport-series-label {
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-    &__passport-series {}
-    &__passport-number-label {
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-    &__passport-number {}
-    &__tel-label {
-        margin-bottom: 5px;
-        font-size: 25px;
-    }
-    &__tel {}
-    &__password-label {
+
+    &__password-label, &__password-repeat-label, &__email-label {
         margin-bottom: 5px;
         font-size: 25px;
     }

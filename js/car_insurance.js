@@ -27,9 +27,117 @@ function cityInputCheck(value) {
     return result;
 }
 
+//Проверка поля "Имя"
+function nameInputCheck(value) {
+    let result = true;
+
+    if (value === '') {
+        result = false;
+    } else {
+        for (let i = 0; i < value.length; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (value[i] == j) {
+                    result = false;
+                }
+            }
+        }
+    }
+
+    return result;
+}
+
+//Проверка количества цифр
+function countingNumberOfDigits(value) {
+    let count = 0;
+
+    while (value) {
+        count++;
+        value = Math.floor(value / 10);
+    }
+    
+    return count;
+}
+
+//Проверка поля "Телефон"
+function numberInputCheck(value, numberOfDigits) {
+    let result = true;
+
+    if (value === '') {
+        result = false;
+    } else {
+        if (countingNumberOfDigits(value) !== numberOfDigits) {
+            result = false;
+        }
+    }
+
+    return result;
+}
+
+//Телефон
+function allNumbersInputCheck(value) {
+    let result = true;
+
+    if (value === '') {
+        result = false;
+    } else {
+        for (let i = 0; i < value.length; i++) {
+            let isNumber = false;
+    
+            for (let j = 0; j < 10; j++) {
+                if (value[i] == j) {
+                    isNumber = true;
+                }
+            }
+    
+            if (!isNumber) {
+                result = false;
+            }
+        }
+    }
+
+    return result;
+}
+
+//Дата рождения
+function dateOfBirthInputCheck(dateOfBirth) {
+    let inputIsCorrect = true;
+
+    if (dateOfBirth.length !== 10) {
+        inputIsCorrect = false;
+    } else {
+        for (let i = 0; i < 10; i++) {
+            if (i === 2 || i === 5) {continue}
+
+            let isNumber = false;
+            
+            for (let j = 0; j < 10; j++) { 
+                if (dateOfBirth[i] == j) {
+                    isNumber = true;
+                }
+            }
+
+            if (!isNumber) {
+                inputIsCorrect = false;
+            }
+        }
+
+        if (!(dateOfBirth[2] === '.' && dateOfBirth[5] === '.')) {
+            inputIsCorrect = false;
+        }
+    }
+    
+    return inputIsCorrect;
+}
+
 let userLoggedIn = false; // Будет проверка защел ли пользователь.
 
 const carForm = document.forms.carInsurance;
+const carName = carForm.carInsuranceName;
+const carSurname = carForm.carInsuranceSurname;
+const carPatronymic = carForm.carInsurancePatronymic;
+const carPassportSeries = carForm.carInsurancePassportSeries;
+const carPassportNumber = carForm.carInsurancePassportNumber;
+const carTel = carForm.carInsuranceTel;
 const carCity = carForm.carInsuranceCity;
 const carStreet = carForm.carInsuranceStreet;
 const carHouse = carForm.carInsuranceHouse;
@@ -44,7 +152,31 @@ const carAddress = carForm.carInsuranceAddress;
 if (carForm) {
     carForm.addEventListener('submit', function(event) {
         let carDataIsCorrect = true;
-
+        
+        if (!nameInputCheck(carName.value)) {
+            carName.style.border = '1px solid red';
+            carDataIsCorrect = false;
+        }
+        if (!nameInputCheck(carSurname.value)) {
+            carSurname.style.border = '1px solid red';
+            carDataIsCorrect = false;
+        }
+        if (!nameInputCheck(carPatronymic.value)) {
+            carPatronymic.style.border = '1px solid red';
+            carDataIsCorrect = false;
+        }
+        if (!numberInputCheck(carPassportSeries.value, 4)) {
+            carPassportSeries.style.border = '1px solid red';
+            carDataIsCorrect = false;
+        }
+        if (!numberInputCheck(carPassportNumber.value, 6)) {
+            carPassportNumber.style.border = '1px solid red';
+            carDataIsCorrect = false;
+        }
+        if (!numberInputCheck(carTel.value, 11)) {
+            carTel.style.border = '1px solid red';
+            carDataIsCorrect = false;
+        }
         if (!userLoggedIn) {
             alert('Вы не вошли!');
             carDataIsCorrect = false;
@@ -92,6 +224,24 @@ if (carForm) {
 }
 
 //Заполнение полей авто-страховки
+carName.addEventListener('focus', function() {
+    carName.style.border = '1px solid #c0c0c0';
+});
+carSurname.addEventListener('focus', function() {
+    carSurname.style.border = '1px solid #c0c0c0';
+});
+carPatronymic.addEventListener('focus', function() {
+    carPatronymic.style.border = '1px solid #c0c0c0';
+});
+carPassportSeries.addEventListener('focus', function() {
+    carPassportSeries.style.border = '1px solid #c0c0c0';
+});
+carPassportNumber.addEventListener('focus', function() {
+    carPassportNumber.style.border = '1px solid #c0c0c0';
+});
+carTel.addEventListener('focus', function() {
+    carTel.style.border = '1px solid #c0c0c0';
+});
 carCity.addEventListener('focus', function() {
     carCity.style.border = '1px solid #c0c0c0';
 });

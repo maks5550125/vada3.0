@@ -50,6 +50,66 @@
             border: 1px solid #c0c0c0;
         }
     }
+    &__name-and-surname-wrapper {
+        display: flex;
+        gap: 30px;
+    }
+    &__name-label {
+        margin-bottom: 5px;
+    }
+    &__name {}
+    &__surname-label {
+        margin-bottom: 5px;
+    }
+    &__surname {}
+    &__patronymic-label {
+        margin-bottom: 5px;
+    }
+    &__patronymic {}
+    &__passport-wrapper-label {
+        margin-bottom: 7px;
+        font-size: 1.1rem;
+    }
+    &__passport-wrapper {
+        display: flex;
+        gap: 30px;
+    }
+    &__passport-series-label {
+        margin-bottom: 5px;
+    }
+    &__passport-series {}
+    &__passport-number-label {
+        margin-bottom: 5px;
+    }
+    &__passport-number {}
+    &__tel-label {
+        margin-bottom: 5px;
+    }
+    &__tel {}
+    &__password-label {
+        margin-bottom: 5px;
+    }
+    &__password {}
+    &__submit {}
+
+    @media (max-width: 499px) {
+        align-items: flex-start;
+
+        &__body {
+            width: 320px;
+            height: 800px;
+        }
+        &__name-and-surname-wrapper {
+            display: block;
+        }
+        &__passport-wrapper {
+            display: block;
+        }
+    }
+
+    @media(min-width: 500px) and (max-height: 599px) {
+        align-items: flex-start;
+    }
     &__user-address {}
     &__user-address-level1 {
         display: flex;

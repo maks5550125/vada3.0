@@ -1,4 +1,3 @@
-<!-- Создание элемента веб-страницы (страхование жилья) -->
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -73,6 +72,31 @@
                     </div>
                     <div class="insurance-form">
                         <form name="homeInsurance" action="#" method="post" class="insurance-form__form">
+                            <div class="insurance-form__name-and-surname-wrapper">
+                                <div class="insurance-form__name-wrapper">
+                                    <p class="insurance-form__name-label">Имя</p>
+                                    <input name="homeInsuranceName" type="text" class="insurance-form__name">
+                                </div>
+                                <div class="insurance-form__surname-wrapper">
+                                    <p class="insurance-form__surname-label">Фамилия</p>
+                                    <input name="homeInsuranceSurname" type="text" class="insurance-form__surname">
+                                </div>
+                            </div>
+                            <p class="insurance-form__patronymic-label">Отчество</p>
+                            <input name="homeInsurancePatronymic" type="text" class="insurance-form__patronymic">
+                            <p class="insurance-form__passport-wrapper-label">Паспорт</p>
+                            <div class="insurance-form__passport-wrapper">
+                                <div class="insurance-form__passport-series-wrapper">
+                                    <p class="insurance-form__passport-series-label">Серия</p>
+                                    <input name="homeInsurancePassportSeries" type="text" class="insurance-form__passport-series">
+                                </div>
+                                <div class="insurance-form__passport-number-wrapper">
+                                    <p class="insurance-form__passport-number-label">Номер</p>
+                                    <input name="homeInsurancePassportNumber" type="text" class="insurance-form__passport-number">
+                                </div>
+                            </div>
+                            <p class="insurance-form__tel-label">Телефон</p>
+                            <input name="homeInsuranceTel" type="tel" class="insurance-form__tel">
                             <div class="insurance-form__user-address">
                                 <div class="insurance-form__user-address-level1">
                                     <div class="insurance-form__city-wrapper">
@@ -118,33 +142,12 @@
 <div class="reg-popup">
     <div class="reg-popup__body">
         <form action="#" name="reg"  method="post" class="reg-popup__form">
-            <div class="reg-popup__name-and-surname-wrapper">
-                <div class="reg-popup__name-wrapper">
-                    <p class="reg-popup__name-label">Имя</p>
-                    <input name="regName" type="text" class="reg-popup__name">
-                </div>
-                <div class="reg-popup__surname-wrapper">
-                    <p class="reg-popup__surname-label">Фамилия</p>
-                    <input name="regSurname" type="text" class="reg-popup__surname">
-                </div>
-            </div>
-            <p class="reg-popup__patronymic-label">Отчество</p>
-            <input name="regPatronymic" type="text" class="reg-popup__patronymic">
-            <p class="reg-popup__passport-wrapper-label">Паспорт</p>
-            <div class="reg-popup__passport-wrapper">
-                <div class="reg-popup__passport-series-wrapper">
-                    <p class="reg-popup__passport-series-label">Серия</p>
-                    <input name="regPassportSeries" type="text" class="reg-popup__passport-series">
-                </div>
-                <div class="reg-popup__passport-number-wrapper">
-                    <p class="reg-popup__passport-number-label">Номер</p>
-                    <input name="regPassportNumber" type="text" class="reg-popup__passport-number">
-                </div>
-            </div>
-            <p class="reg-popup__tel-label">Телефон</p>
-            <input name="regTel" type="tel" class="reg-popup__tel">
+            <p class="reg-popup__email-label">Эл. почта</p>
+            <input name="regEmail" type="email" class="reg-popup__email">
             <p class="reg-popup__password-label">Пароль</p>
             <input name="regPassword" type="password" class="reg-popup__password">
+            <p class="reg-popup__password-repeat-label">Повторите пароль</p>
+            <input name="regPasswordRepeat" type="password" class="reg-popup__password-repeat">
             <div class="reg-popup__submit submit"><button class="submit__button">Отправить</button></div>
         </form>
         <button type="button" class="reg-popup__cancel-button cancel-button">
@@ -156,8 +159,8 @@
 <div class="sign-popup">
     <div class="sign-popup__body">
         <form action="#" name="sign" method="post" class="sign-popup__form">
-            <p class="sign-popup__tel-label">Телефон</p>
-            <input name="signTel" type="tel" class="sign-popup__tel">
+            <p class="sign-popup__email-label">Ел. почта</p>
+            <input name="signEmail" type="email" class="sign-popup__email">
             <p class="sign-popup__password-label">Пароль</p>
             <input name="signPassword" type="password" class="sign-popup__password">
             <div class="sign-popup__submit submit"><button class="submit__button">Отправить</button></div>
@@ -183,11 +186,11 @@
 </footer>
         </div>
 
-        <script src="js/header.js"></script>
-        <script src="js/address.js"></script>
-        <script src="js/reg.js"></script>
-        <script src="js/sign.js"></script>
-        <script src="js/home_insurance.js"></script>
+        <script src="/js/header.js"></script>
+        <script src="/js/address.js"></script>
+        <script src="/js/reg.js"></script>
+        <script src="/js/sign.js"></script>
+        <script src="/js/home_insurance.js"></script>
 
     </body>
 </html>
