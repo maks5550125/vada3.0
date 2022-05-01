@@ -693,7 +693,7 @@ body._lock {
   background-color: #f0f0f0;
   -webkit-box-shadow: 0 0 3px 0 #707070;
           box-shadow: 0 0 3px 0 #707070;
-  height: 450px;
+  height: 400px;
   width: 320px;
 }
 .sign-popup__email-label {
@@ -798,8 +798,8 @@ body._lock {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 500px;
-  height: 600px;
+  width: 320px;
+  height: 450px;
   background-color: #f0f0f0;
 }
 .reg-popup__form input {
@@ -815,14 +815,9 @@ body._lock {
   font-size: 25px;
 }
 @media (max-width: 499px) {
-  .reg-popup {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
   .reg-popup__body {
     width: 320px;
-    height: 800px;
+    height: 450px;
   }
   .reg-popup__name-and-surname-wrapper {
     display: block;
@@ -831,17 +826,20 @@ body._lock {
     display: block;
   }
 }
-@media (min-width: 500px) and (max-height: 599px) {
-  .reg-popup {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-}
 
 .reg-popup._active {
   opacity: 1;
   visibility: visible;
+}
+
+.error {
+  color: red;
+  width: 200px;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  -webkit-transform: translate(-47%, 0);
+          transform: translate(-47%, 0);
 }
 
 .footer {

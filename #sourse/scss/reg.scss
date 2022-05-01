@@ -19,8 +19,8 @@
         position: relative;
         justify-content: center;
         align-items: center;
-        width: 500px;
-        height: 600px;
+        width: 320px;
+        height: 450px;
         background-color: #f0f0f0;
     }
     &__form {
@@ -42,11 +42,9 @@
     &__submit {}
 
     @media (max-width: 499px) {
-        align-items: flex-start;
-
         &__body {
             width: 320px;
-            height: 800px;
+            height: 450px;
         }
         &__name-and-surname-wrapper {
             display: block;
@@ -54,10 +52,6 @@
         &__passport-wrapper {
             display: block;
         }
-    }
-
-    @media(min-width: 500px) and (max-height: 599px) {
-        align-items: flex-start;
     }
 }
 
@@ -68,4 +62,13 @@
 
 .submit {
     &__button {}
+}
+
+.error {
+    color: red;
+    width: 200px;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-47%, 0);
 }

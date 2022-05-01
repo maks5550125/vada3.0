@@ -58,27 +58,30 @@ if (regForm) {
             }
 
             if (!regDataIsCorrect) {
-                event.preventDefault(); //Временно, пока нет сервера.
+                event.preventDefault();
             } else {
                 event.preventDefault();
+
                 const apiKey = 'AIzaSyDTdcnXHRjILXIwDCfjjY1ebo6vsHDWkq0';
                 fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            email: regEmail.value,
-                            password: regPassword.value,
-                            returnSecureToken: true
-                        }),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    })
-                    .then(responce => responce.json())
-                    .then(data => {
-                        if (data.idToken) {
-                            loginInInterface();
-                        }
-                    });
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: regEmail.value,
+                        password: regPassword.value,
+                        returnSecureToken: true
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(responce => responce.json())
+                .then(data => {
+                    if (data.idToken) {
+                        loginInInterface();
+                    } else {
+                        regBringError();
+                    }
+                });
             }
         }
     });
@@ -88,14 +91,23 @@ if (regForm) {
 if (regPassword && regPasswordRepeat) {
     regEmail.addEventListener('focus', function() {
         regEmail.style.border = '1px solid #c0c0c0';
+        if (regPopupBody.querySelector('.error')) {
+            regCancelbringError();
+        }
     });
     regPassword.addEventListener('focus', function() {
         regPassword.style.border = '1px solid #c0c0c0';
         regPasswordRepeat.style.border = '1px solid #c0c0c0';
+        if (regPopupBody.querySelector('.error')) {
+            regCancelbringError();
+        }
     });
     regPasswordRepeat.addEventListener('focus', function() {
         regPassword.style.border = '1px solid #c0c0c0';
         regPasswordRepeat.style.border = '1px solid #c0c0c0';
+        if (regPopupBody.querySelector('.error')) {
+            regCancelbringError();
+        }
     });
 }
 
@@ -112,7 +124,12 @@ function loginInInterface() {
     signButton.classList.add('_display-none');
     loginOutButton.classList.remove('_display-none');
 
-    regPopup.classList.remove('_active');
+    if(regPopup.classList.contains('_active')) {
+        regPopup.classList.remove('_active');
+    }
+    if(signPopup.classList.contains('_active')) {
+        signPopup.classList.remove('_active');
+    }
     body.classList.remove('_lock');
 }
 
@@ -124,3 +141,23 @@ loginOutButton.addEventListener('click', function() {
     signButton.classList.remove('_display-none');
     loginOutButton.classList.add('_display-none');
 });
+
+const regErrorTitle = '<p class="error">Аккаунт уже существует</p>';
+let regDisplayError = false;
+
+//Выведение ошибки
+function regBringError() {
+    if (!regDisplayError) {
+        regPopupBody.insertAdjacentHTML (
+            'beforeend',
+            regErrorTitle
+        );
+    }
+    regDisplayError = true;
+}
+
+//Отмена выведения ошибки
+function regCancelbringError() {
+    regPopupBody.querySelector('.error').remove();
+    regDisplayError = false;
+}

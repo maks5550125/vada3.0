@@ -44,10 +44,30 @@ if  (signForm) {
             }
             
             if (!signDataIsCorrect) {
-                event.preventDefault(); //Временно, пока нет сервера.
+                event.preventDefault(); 
             } else {
                 event.preventDefault();
-                alert('Функция временно не доступна, приносим извинения.');
+
+                const apiKey = 'AIzaSyDTdcnXHRjILXIwDCfjjY1ebo6vsHDWkq0';
+                fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: signEmail.value,
+                        password: signPassword.value,
+                        returnSecureToken: true
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(responce => responce.json())
+                 .then(data => {
+                    if (data.idToken) {
+                        loginInInterface();
+                    } else {
+                        signBringError();
+                    }
+                });
             }
         }
     });
@@ -57,8 +77,34 @@ if  (signForm) {
 if (signEmail && signPassword) {
     signEmail.addEventListener('focus', function() {
         signEmail.style.border = '1px solid #c0c0c0';
+        if (signPopupBody.querySelector('.error')) {
+            signCancelbringError();
+        }
     });
     signPassword.addEventListener('focus', function() {
         signPassword.style.border = '1px solid #c0c0c0';
+        if (signPopupBody.querySelector('.error')) {
+            signCancelbringError();
+        }
     });
+}
+
+const signErrorTitle = '<p class="error" style="padding-left: 22px;">Аккаунт не найден</p>';
+let signDisplayError = false;
+
+//Выведение ошибки
+function signBringError() {
+    if (!signDisplayError) {
+        signPopupBody.insertAdjacentHTML (
+            'beforeend',
+            signErrorTitle
+        );
+    }
+    signDisplayError = true;
+}
+
+//Отмена выведения ошибки
+function signCancelbringError() {
+    signPopupBody.querySelector('.error').remove();
+    signDisplayError = false;
 }
