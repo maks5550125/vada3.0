@@ -38,7 +38,7 @@ if  (signForm) {
                 signEmail.style.border = '1px solid red';
                 signDataIsCorrect = false;
             }
-            if (signPassword.value.length < 4) {
+            if (signPassword.value.length < 6) {
                 signPassword.style.border = '1px solid red';
                 signDataIsCorrect = false;
             }

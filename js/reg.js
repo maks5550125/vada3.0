@@ -29,6 +29,10 @@ const regEmail = regForm.regEmail;
 const regPassword = regForm.regPassword;
 const regPasswordRepeat = regForm.regPasswordRepeat;
 
+//Переменная показывает, зашел ли пользователь зашел ли пользователь
+let userLoggedIn = false;
+console.log(userLoggedIn);
+
 //Проверка на ошибки заполнения поля "регистрация"
 if  (regForm) {
     regForm.addEventListener('submit', function(event) {
@@ -40,11 +44,11 @@ if  (regForm) {
                 regEmail.style.border = '1px solid red';
                 regDataIsCorrect = false;
             }
-            if (regPassword.value.length < 4) {
+            if (regPassword.value.length < 6) {
                 regPassword.style.border = '1px solid red';
                 regDataIsCorrect = false;
             }
-            if (regPasswordRepeat.value.length < 4) {
+            if (regPasswordRepeat.value.length < 6) {
                 regPasswordRepeat.style.border = '1px solid red';
                 regDataIsCorrect = false;
             }
@@ -58,7 +62,21 @@ if  (regForm) {
                 event.preventDefault(); //Временно, пока нет сервера.
             } else {
                 event.preventDefault();
-                alert('Функция временно не доступна, приносим извинения.')
+                const apiKey = 'AIzaSyDTdcnXHRjILXIwDCfjjY1ebo6vsHDWkq0';
+                fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: regEmail.value,
+                        password: regPassword.value,
+                        returnSecureToken: true
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(responce => responce.json())
+                .then(data => /*{if (data.idToken) {userLoggedIn = true}}*/ console.log(data.idToken));
+                console.log(userLoggedIn);
             }
         }
     });
@@ -66,13 +84,15 @@ if  (regForm) {
 
 //Заполнение полей регистрации
 if (regPassword && regPasswordRepeat) {
-    regPassword.addEventListener('focus', function() {
-        regPassword.style.border = '1px solid #c0c0c0';
-    });
     regEmail.addEventListener('focus', function() {
         regEmail.style.border = '1px solid #c0c0c0';
     });
+    regPassword.addEventListener('focus', function() {
+        regPassword.style.border = '1px solid #c0c0c0';
+        regPasswordRepeat.style.border = '1px solid #c0c0c0';
+    });
     regPasswordRepeat.addEventListener('focus', function() {
+        regPassword.style.border = '1px solid #c0c0c0';
         regPasswordRepeat.style.border = '1px solid #c0c0c0';
     });
 }

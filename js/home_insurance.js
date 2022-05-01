@@ -129,8 +129,6 @@ function dateOfBirthInputCheck(dateOfBirth) {
     return inputIsCorrect;
 }
 
-let userLoggedIn = false; // Будет проверка защел ли пользователь.
-
 const homeForm = document.forms.homeInsurance;
 const homeName = homeForm.homeInsuranceName;
 const homeSurname = homeForm.homeInsuranceSurname;
