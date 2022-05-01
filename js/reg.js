@@ -22,19 +22,18 @@ window.addEventListener('click', function(event) {
             }
         }
     }
-}); 
+});
 
 const regForm = document.forms.reg;
 const regEmail = regForm.regEmail;
 const regPassword = regForm.regPassword;
 const regPasswordRepeat = regForm.regPasswordRepeat;
 
-//Переменная показывает, зашел ли пользователь зашел ли пользователь
+//Переменная показывает, зашел ли пользователь
 let userLoggedIn = false;
-console.log(userLoggedIn);
 
 //Проверка на ошибки заполнения поля "регистрация"
-if  (regForm) {
+if (regForm) {
     regForm.addEventListener('submit', function(event) {
         let emailForm = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         let regDataIsCorrect = true;
@@ -64,19 +63,22 @@ if  (regForm) {
                 event.preventDefault();
                 const apiKey = 'AIzaSyDTdcnXHRjILXIwDCfjjY1ebo6vsHDWkq0';
                 fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: regEmail.value,
-                        password: regPassword.value,
-                        returnSecureToken: true
-                    }),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(responce => responce.json())
-                .then(data => /*{if (data.idToken) {userLoggedIn = true}}*/ console.log(data.idToken));
-                console.log(userLoggedIn);
+                        method: 'POST',
+                        body: JSON.stringify({
+                            email: regEmail.value,
+                            password: regPassword.value,
+                            returnSecureToken: true
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(responce => responce.json())
+                    .then(data => {
+                        if (data.idToken) {
+                            loginInInterface();
+                        }
+                    });
             }
         }
     });
@@ -97,4 +99,28 @@ if (regPassword && regPasswordRepeat) {
     });
 }
 
+const signList = document.querySelector('.header__sign-list');
+const regButton = signList.querySelector('.reg');
+const signButton = signList.querySelector('.sign');
+const loginOutButton = signList.querySelector('.login-out');
 
+//Изменение интерфейса пользователя, который вошел
+function loginInInterface() {
+    userLoggedIn = true;
+
+    regButton.classList.add('_display-none');
+    signButton.classList.add('_display-none');
+    loginOutButton.classList.remove('_display-none');
+
+    regPopup.classList.remove('_active');
+    body.classList.remove('_lock');
+}
+
+//Изменение интерфейса пользователя, который вышел
+loginOutButton.addEventListener('click', function() {
+    userLoggedIn = false;
+
+    regButton.classList.remove('_display-none');
+    signButton.classList.remove('_display-none');
+    loginOutButton.classList.add('_display-none');
+});

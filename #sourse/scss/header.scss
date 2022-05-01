@@ -1,6 +1,5 @@
 .header {
     box-shadow: 0 0 3px 0 #707070;
-
     &__main {
         height: 7.5rem;
         background-color: #004aad;
@@ -21,7 +20,7 @@
     &__logo {
         display: flex;
         align-items: center;
-        height: 100%;   
+        height: 100%;
     }
     &__logo-link {
         display: block;
@@ -50,8 +49,8 @@
     &__form {}
     &__city-select {
         font-size: 1.125rem;
-        width: 12.5rem; 
-        height: 2.5rem; 
+        width: 12.5rem;
+        height: 2.5rem;
         background-color: #d0d0d0;
         border: 1px solid #c0c0c0;
     }
@@ -94,7 +93,6 @@
         background-color: #d0d0d0;
         border-top: 2px solid #c0c0c0;
         border-bottom: 2px solid #c0c0c0;
-
     }
     &__sign-list {
         display: flex;
@@ -104,7 +102,6 @@
         height: 100%;
     }
     &__sign-item {}
-
     @media (max-width: 48em) {
         &__wrapper {
             grid-template-columns: 3.125rem 1fr 3.125rem;
@@ -162,12 +159,10 @@
     line-height: 1.5;
     display: flex;
     align-items: center;
-
-    
     &__tel {
         padding-left: 1.1875rem;
         background: url('../img/icons/tel_icon.png') 0 3px / 17px 17px no-repeat;
-    } 
+    }
     &__tel a {
         color: white;
     }
@@ -182,7 +177,6 @@
 @media (max-width: 48em) {
     .contacts {
         position: relative;
-
         .header__wrapper &__tel {
             padding: 10px 20px;
             padding-left: 19px;
@@ -196,8 +190,7 @@
             z-index: 2;
             background: #004aad url('../img/icons/tel_icon.png') 0 13px / 17px 17px no-repeat;
             box-shadow: 0 0 2px 0 #808080;
-        } 
-
+        }
         .header__wrapper &__tel._active {
             opacity: 1;
             visibility: visible;
@@ -206,16 +199,25 @@
 }
 
 .sign {}
+
 .sign:hover {
     text-decoration: underline;
 }
+
 .sign:active {
     text-shadow: 0 0 1px #808080;
 }
+
 .reg {}
+
 .reg:hover {
     text-decoration: underline 2px;
 }
+
 .reg:active {
     text-shadow: 0 0 1px #808080;
+}
+
+._display-none {
+    display: none;
 }

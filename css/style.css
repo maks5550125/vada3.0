@@ -332,6 +332,10 @@ body._lock {
   text-shadow: 0 0 1px #808080;
 }
 
+._display-none {
+  display: none;
+}
+
 .main__address {
   margin-bottom: 2.26%;
 }
