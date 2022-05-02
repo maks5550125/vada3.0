@@ -148,6 +148,8 @@ const lifeAddress = lifeForm.lifeInsuranceAddress;
 //Проверка ошибок заполнения анкеты на страхование жизни
 if (lifeForm) {
     lifeForm.addEventListener('submit', function(event) {
+        userLoggedIn = document.cookie.slice(8) === 'true';
+
         let lifeDataIsCorrect = true;
         if (!nameInputCheck(lifeName.value)) {
             lifeName.style.border = '1px solid red';
@@ -175,6 +177,7 @@ if (lifeForm) {
         }
         if (!userLoggedIn) {
             alert('Вы не вошли!');
+            console.log(document.cookie);
             lifeDataIsCorrect = false;
         }
         if (!cityInputCheck(lifeCity.value)) {
@@ -207,10 +210,33 @@ if (lifeForm) {
         }
 
         if (!lifeDataIsCorrect) {
-            event.preventDefault(); //Временно, пока нет сервера.
+            event.preventDefault();
         } else {
             event.preventDefault();
-            alert('Функция временно не доступна, приносим извинения.');
+            
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/applications/life.json', {
+                method: 'POST',
+                body: JSON.stringify({
+                    type: 'life',
+                    name: lifeName.value,
+                    surname: lifeSurname.value,
+                    patronymic: lifePatronymic.value,
+                    passportSeries: lifePassportSeries.value,
+                    passportNumber: lifePassportNumber.value,
+                    tel: lifeTel.value,
+                    city: lifeCity.value,
+                    street: lifeStreet.value,
+                    house: lifeHouse.value,
+                    flat: lifeFlat.value,
+                    inn: lifeInn.value,
+                    dateOfBirth: lifeDateOfBirth.value,
+                    sumInsured: lifeSumInsured.value,
+                    address:  lifeAddress.value
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
         }
     });
 }

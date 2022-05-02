@@ -149,6 +149,8 @@ const carAddress = carForm.carInsuranceAddress;
 //Проверка ошибок заполнения анкеты на авто-страхование
 if (carForm) {
     carForm.addEventListener('submit', function(event) {
+        userLoggedIn = document.cookie.slice(8) === 'true';
+
         let carDataIsCorrect = true;
         
         if (!nameInputCheck(carName.value)) {
@@ -216,7 +218,31 @@ if (carForm) {
             event.preventDefault(); //Временно, пока нет сервера.
         } else {
             event.preventDefault();
-            alert('Функция временно не доступна, приносим извинения.');
+            
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/applications/car.json', {
+                method: 'POST',
+                body: JSON.stringify({
+                    type: 'car',
+                    name: carName.value,
+                    surname: carSurname.value,
+                    patronymic: carPatronymic.value,
+                    passportSeries: carPassportSeries.value,
+                    passportNumber: carPassportNumber.value,
+                    tel: carTel.value,
+                    city: carCity.value,
+                    street: carStreet.value,
+                    house: carHouse.value,
+                    flat: carFlat.value,
+                    inn: carInn.value,
+                    dateOfBirth: carDateOfBirth.value,
+                    sumInsured: carSumInsured.value,
+                    driversLicense: carDriversLicense.value,
+                    address:  carAddress.value
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
         }
     });
 }

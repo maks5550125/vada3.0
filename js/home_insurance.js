@@ -148,6 +148,8 @@ const homeAddress = homeForm.homeInsuranceAddress;
 //Проверка на ошибка заполнения анкеты на страхование жилья
 if (homeForm) {
     homeForm.addEventListener('submit', function(event) {
+        userLoggedIn = document.cookie.slice(8) === 'true';
+
         let homeDataIsCorrect = true;
 
         if (!nameInputCheck(homeName.value)) {
@@ -211,7 +213,30 @@ if (homeForm) {
             event.preventDefault(); //Временно, пока нет сервера.
         } else {
             event.preventDefault();
-            alert('Функция временно не доступна, приносим извинения.');
+            
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/applications/home.json', {
+                method: 'POST',
+                body: JSON.stringify({
+                    type: 'home',
+                    name: homeName.value,
+                    surname: homeSurname.value,
+                    patronymic: homePatronymic.value,
+                    passportSeries: homePassportSeries.value,
+                    passportNumber: homePassportNumber.value,
+                    tel: homeTel.value,
+                    city: homeCity.value,
+                    street: homeStreet.value,
+                    house: homeHouse.value,
+                    flat: homeFlat.value,
+                    inn: homeInn.value,
+                    dateOfBirth: homeDateOfBirth.value,
+                    sumInsured: homeSumInsured.value,
+                    address:  homeAddress.value
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
         }
     });
 }
