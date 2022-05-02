@@ -120,6 +120,16 @@ const loginOutButton = signList.querySelector('.login-out');
 function loginInInterface() {
     userLoggedIn = true;
 
+    fetch('https://vada-58654-default-rtdb.firebaseio.com/isLogin.json', {
+        method: 'PUT',
+        body: JSON.stringify({
+            isLogin: true
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
     regButton.classList.add('_display-none');
     signButton.classList.add('_display-none');
     loginOutButton.classList.remove('_display-none');
@@ -136,6 +146,16 @@ function loginInInterface() {
 //Изменение интерфейса пользователя, который вышел
 loginOutButton.addEventListener('click', function() {
     userLoggedIn = false;
+
+    fetch('https://vada-58654-default-rtdb.firebaseio.com/isLogin.json', {
+        method: 'PUT',
+        body: JSON.stringify({
+            isLogin: false
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
 
     regButton.classList.remove('_display-none');
     signButton.classList.remove('_display-none');
