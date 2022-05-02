@@ -1,3 +1,15 @@
+//Переменная показывает, зашел ли пользователь
+let userLoggedIn = false;
+
+//Проверка, вошел ли пользователь через cookie
+document.addEventListener('DOMContentLoaded', function() {
+    userLoggedIn = document.cookie.slice(8) === 'true';
+
+    if (userLoggedIn) {
+        loginInInterface();
+    }
+})
+
 const reg = document.querySelector('.reg');
 const regPopup = document.querySelector('.reg-popup');
 const regPopupBody = document.querySelector('.reg-popup__body');
@@ -28,9 +40,6 @@ const regForm = document.forms.reg;
 const regEmail = regForm.regEmail;
 const regPassword = regForm.regPassword;
 const regPasswordRepeat = regForm.regPasswordRepeat;
-
-//Переменная показывает, зашел ли пользователь
-let userLoggedIn = false;
 
 //Проверка на ошибки заполнения поля "регистрация"
 if (regForm) {
@@ -118,17 +127,7 @@ const loginOutButton = signList.querySelector('.login-out');
 
 //Изменение интерфейса пользователя, который вошел
 function loginInInterface() {
-    userLoggedIn = true;
-
-    fetch('https://vada-58654-default-rtdb.firebaseio.com/isLogin.json', {
-        method: 'PUT',
-        body: JSON.stringify({
-            isLogin: true
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    document.cookie = 'isLogin=true;'
 
     regButton.classList.add('_display-none');
     signButton.classList.add('_display-none');
@@ -145,17 +144,7 @@ function loginInInterface() {
 
 //Изменение интерфейса пользователя, который вышел
 loginOutButton.addEventListener('click', function() {
-    userLoggedIn = false;
-
-    fetch('https://vada-58654-default-rtdb.firebaseio.com/isLogin.json', {
-        method: 'PUT',
-        body: JSON.stringify({
-            isLogin: false
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+    document.cookie = 'isLogin=false;'
 
     regButton.classList.remove('_display-none');
     signButton.classList.remove('_display-none');
