@@ -262,7 +262,7 @@ if (carForm) {
 
             showSuccessfullyPopup();
 
-            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/carCount/-N18Bxc_NdS7jSoejAX2.json', {
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/CarCount/-N18Bxc_NdS7jSoejAX2.json', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -271,7 +271,7 @@ if (carForm) {
             .then(responce => responce.json())
             .then(data => countOfInsurance = data.count)
             .then(function(countOfInsurance) {
-                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/carCount/-N18Bxc_NdS7jSoejAX2.json', {
+                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/CarCount/-N18Bxc_NdS7jSoejAX2.json', {
                     method: 'PUT',
                     body: JSON.stringify({
                         count: ++countOfInsurance
