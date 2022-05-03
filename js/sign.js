@@ -64,6 +64,9 @@ if  (signForm) {
                  .then(data => {
                     if (data.idToken) {
                         loginInInterface();
+
+                        signEmail.value = '';
+                        signPassword.value = '';
                     } else {
                         signBringError();
                     }

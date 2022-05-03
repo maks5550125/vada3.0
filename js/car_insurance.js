@@ -223,6 +223,7 @@ if (carForm) {
                 method: 'POST',
                 body: JSON.stringify({
                     type: 'car',
+                    date: new Date().toLocaleDateString(),
                     name: carName.value,
                     surname: carSurname.value,
                     patronymic: carPatronymic.value,
@@ -242,6 +243,43 @@ if (carForm) {
                 headers: {
                     'Content-Type': 'application/json'
                 }
+            })
+
+            carName.value = '';
+            carSurname.value = '';
+            carPatronymic.value = '';
+            carPassportSeries.value = '';
+            carPassportNumber.value = '';
+            carTel.value = '';
+            carCity.value = '';
+            carStreet.value = '';
+            carHouse.value = '';
+            carFlat.value = '';
+            carInn.value = '';
+            carDateOfBirth.value = '';
+            carSumInsured.value = '';
+            carDriversLicense.value = '';
+
+            showSuccessfullyPopup();
+
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/carCount/-N18Bxc_NdS7jSoejAX2.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(responce => responce.json())
+            .then(data => countOfInsurance = data.count)
+            .then(function(countOfInsurance) {
+                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/carCount/-N18Bxc_NdS7jSoejAX2.json', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        count: ++countOfInsurance
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
             })
         }
     });

@@ -218,6 +218,7 @@ if (homeForm) {
                 method: 'POST',
                 body: JSON.stringify({
                     type: 'home',
+                    date: new Date().toLocaleDateString(),
                     name: homeName.value,
                     surname: homeSurname.value,
                     patronymic: homePatronymic.value,
@@ -236,6 +237,42 @@ if (homeForm) {
                 headers: {
                     'Content-Type': 'application/json'
                 }
+            })
+
+            homeName.value = '';
+            homeSurname.value = '';
+            homePatronymic.value = '';
+            homePassportSeries.value = '';
+            homePassportNumber.value = '';
+            homeTel.value = '';
+            homeCity.value = '';
+            homeStreet.value = '';
+            homeHouse.value = '';
+            homeFlat.value = '';
+            homeInn.value = '';
+            homeDateOfBirth.value = '';
+            homeSumInsured.value = '';
+
+            showSuccessfullyPopup();
+
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/homeCount/-N18CFYfiNcMu8jxdaNR.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(responce => responce.json())
+            .then(data => countOfInsurance = data.count)
+            .then(function(countOfInsurance) {
+                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/homeCount/-N18CFYfiNcMu8jxdaNR.json', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        count: ++countOfInsurance
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
             })
         }
     });

@@ -87,10 +87,16 @@ if (regForm) {
                 .then(data => {
                     if (data.idToken) {
                         loginInInterface();
+
+                        regEmail.value = '';
+                        regPassword.value = '';
+                        regPasswordRepeat.value = '';
                     } else {
                         regBringError();
                     }
                 });
+
+
             }
         }
     });
