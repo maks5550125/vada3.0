@@ -245,20 +245,41 @@ if (carForm) {
                 }
             })
 
-            carName.value = '';
-            carSurname.value = '';
-            carPatronymic.value = '';
-            carPassportSeries.value = '';
-            carPassportNumber.value = '';
-            carTel.value = '';
-            carCity.value = '';
-            carStreet.value = '';
-            carHouse.value = '';
-            carFlat.value = '';
-            carInn.value = '';
-            carDateOfBirth.value = '';
-            carSumInsured.value = '';
-            carDriversLicense.value = '';
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/sumInsured/-N1IfhaUbBd3dJXrUANp.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(responce => responce.json())
+            .then(data => sumInsuredTemp = data.sumInsured)
+            .then(function(sumInsuredTemp) {
+                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/sumInsured/-N1IfhaUbBd3dJXrUANp.json', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        sumInsured: sumInsuredTemp + Number(carSumInsured.value),
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function() {
+                    carName.value = '';
+                    carSurname.value = '';
+                    carPatronymic.value = '';
+                    carPassportSeries.value = '';
+                    carPassportNumber.value = '';
+                    carTel.value = '';
+                    carCity.value = '';
+                    carStreet.value = '';
+                    carHouse.value = '';
+                    carFlat.value = '';
+                    carInn.value = '';
+                    carDateOfBirth.value = '';
+                    carSumInsured.value = '';
+                    carDriversLicense.value = '';
+                });
+            });
 
             showSuccessfullyPopup();
 

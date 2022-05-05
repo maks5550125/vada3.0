@@ -239,19 +239,40 @@ if (lifeForm) {
                 }
             })
 
-            lifeName.value = '';
-            lifeSurname.value = '';
-            lifePatronymic.value = '';
-            lifePassportSeries.value = '';
-            lifePassportNumber.value = '';
-            lifeTel.value = '';
-            lifeCity.value = '';
-            lifeStreet.value = '';
-            lifeHouse.value = '';
-            lifeFlat.value = '';
-            lifeInn.value = '';
-            lifeDateOfBirth.value = '';
-            lifeSumInsured.value = '';
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/sumInsured/-N1IfhaUbBd3dJXrUANp.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(responce => responce.json())
+            .then(data => sumInsuredTemp = data.sumInsured)
+            .then(function(sumInsuredTemp) {
+                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/sumInsured/-N1IfhaUbBd3dJXrUANp.json', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        sumInsured: sumInsuredTemp + Number(lifeSumInsured.value),
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function() {
+                    lifeName.value = '';
+                    lifeSurname.value = '';
+                    lifePatronymic.value = '';
+                    lifePassportSeries.value = '';
+                    lifePassportNumber.value = '';
+                    lifeTel.value = '';
+                    lifeCity.value = '';
+                    lifeStreet.value = '';
+                    lifeHouse.value = '';
+                    lifeFlat.value = '';
+                    lifeInn.value = '';
+                    lifeDateOfBirth.value = '';
+                    lifeSumInsured.value = '';
+                });
+            });
 
             showSuccessfullyPopup();
 
@@ -273,7 +294,7 @@ if (lifeForm) {
                         'Content-Type': 'application/json'
                     }
                 });
-            })
+            });
         }
     });
 }

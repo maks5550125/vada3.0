@@ -239,19 +239,40 @@ if (homeForm) {
                 }
             })
 
-            homeName.value = '';
-            homeSurname.value = '';
-            homePatronymic.value = '';
-            homePassportSeries.value = '';
-            homePassportNumber.value = '';
-            homeTel.value = '';
-            homeCity.value = '';
-            homeStreet.value = '';
-            homeHouse.value = '';
-            homeFlat.value = '';
-            homeInn.value = '';
-            homeDateOfBirth.value = '';
-            homeSumInsured.value = '';
+            fetch('https://vada-58654-default-rtdb.firebaseio.com/data/sumInsured/-N1IfhaUbBd3dJXrUANp.json', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(responce => responce.json())
+            .then(data => sumInsuredTemp = data.sumInsured)
+            .then(function(sumInsuredTemp) {
+                fetch('https://vada-58654-default-rtdb.firebaseio.com/data/sumInsured/-N1IfhaUbBd3dJXrUANp.json', {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        sumInsured: sumInsuredTemp + Number(homeSumInsured.value),
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(function() {
+                    homeName.value = '';
+                    homeSurname.value = '';
+                    homePatronymic.value = '';
+                    homePassportSeries.value = '';
+                    homePassportNumber.value = '';
+                    homeTel.value = '';
+                    homeCity.value = '';
+                    homeStreet.value = '';
+                    homeHouse.value = '';
+                    homeFlat.value = '';
+                    homeInn.value = '';
+                    homeDateOfBirth.value = '';
+                    homeSumInsured.value = '';
+                });
+            });
 
             showSuccessfullyPopup();
 
